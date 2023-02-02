@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct student 
+{
+	char name[39];
+	int rollno;
+	float marks;
+	
+};
+main()
+{
+	FILE *e;
+	e=fopen("bcd.txt","r+");
+	if(e==NULL)
+	{
+		printf("file will not exit");
+		exit(0);
+	}
+	else
+	{
+	
+	struct student p[5];
+	
+	int i;
+	for(i=0;i<3;i++)
+	{
+		printf("enter the student details s[%d]\n",i+1);
+		scanf("%s%d%f",p[i].name,&p[i].rollno,&p[i].marks);
+	}
+		for(i=0;i<3;i++)
+	{
+		printf(" the student details is =%d\n",i+1);
+		fprintf(e,"%s\n%d\n%f\n",p[i].name,p[i].rollno,p[i].marks,p);
+	}
+}
+printf("file data successfully stored");
+fclose(e);
+}
